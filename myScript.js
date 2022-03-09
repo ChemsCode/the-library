@@ -33,7 +33,32 @@ function addBookToLibrary(){
     console.log(title + author + pages + read)
 
     myLibrary.push(new Book(title, author, pages, read))
-
+    
     console.log(myLibrary[0].info())
+
+    closeForm();
+
+    addBookToMain(myLibrary[0]);
 }
 
+
+
+//logic for opening form
+
+function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+}
+function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+}
+
+
+//logic for adding book into page
+
+
+function addBookToMain(Book){
+    var card = document.createElement("div");
+    card.classList.add("cards");
+    card.innerHTML = Book.info();
+    document.getElementById("main").appendChild(card);
+}
