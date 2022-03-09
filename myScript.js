@@ -19,10 +19,13 @@ Book.prototype.info = function(){
     return this.title + " by " + this.author + ", " + this.pages + " pages, " + readStatus;
 }
 
+
 var theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 
 console.log(theHobbit.info())
 
+
+let counter = 0;
 
 function addBookToLibrary(){
     const title = document.getElementById("title").value;
@@ -33,12 +36,12 @@ function addBookToLibrary(){
     console.log(title + author + pages + read)
 
     myLibrary.push(new Book(title, author, pages, read))
-    
-    console.log(myLibrary[0].info())
 
     closeForm();
 
-    addBookToMain(myLibrary[0]);
+    addBookToMain(myLibrary[counter]);
+
+    counter++;
 }
 
 
@@ -56,9 +59,17 @@ function closeForm() {
 //logic for adding book into page
 
 
-function addBookToMain(Book){
+function addBookToMain(book){
     var card = document.createElement("div");
     card.classList.add("cards");
-    card.innerHTML = Book.info();
+    card.innerHTML =  "<br/>" + "BOOK" + "<br/>"
+    // card.innerHTML = Book.info();
+    for(var name in book){
+        if((typeof book[name]) == "function")
+        continue;
+        console.log(typeof book[name])
+
+        card.innerHTML += "<br/>" +name + ": "+ book[name] + "<br/>";
+    }
     document.getElementById("main").appendChild(card);
 }
