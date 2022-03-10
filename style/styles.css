@@ -3,6 +3,7 @@
     padding: 0;
 }
 html, body {
+    font-family: Arial, sans-serif;
     height: 100%;
     margin: 0;
 }
@@ -18,7 +19,14 @@ html, body {
     align-items: center;
     position: sticky;
     top: 0;
-    background-color: rgb(175, 255, 242)
+    background-color: rgb(215, 255, 248);
+    box-shadow: 0px 0px 5px #aaaaaa;
+}
+
+.header h2{
+    justify-self: center;
+    font-size: 3rem;
+    padding: 1%;
 }
 
 /*styling for the cards*/
@@ -27,7 +35,7 @@ html, body {
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 15px;
-    justify-content: center;
+    
 }
 
 #main .cards{
@@ -37,56 +45,77 @@ html, body {
     text-align: center;
     box-shadow: 0px 0px 5px #aaaaaa;
     margin: 5%;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 /* CSS for pop up window*/
 
+.add-book{
+   
+}
+
 .openBtn {
     display: flex;
-    justify-content: left;
+    justify-content: center;
+    margin-top: 2%;
   }
-  .openButton {
+.openButton {
     border: none;
     border-radius: 5px;
-    background-color: #1c87c9;
+    background-color: rgb(0, 0, 0);
     color: white;
     padding: 14px 20px;
     cursor: pointer;
     position: fixed;
-  }
-  .loginPopup {
+}
+.loginPopup {
     position: relative;
     text-align: center;
     width: 100%;
-  }
-  .formPopup {
+}
+.formPopup {
     display: none;
     position: fixed;
-    left: 45%;
-    top: 5%;
+    align-self: center;
+    justify-self: center;
+    left: 50%;
+    top: 10%;
     transform: translate(-50%, 5%);
     border: 3px solid #999999;
-    z-index: 9;
-  }
-  .formContainer {
+    z-index: 20;
+}
+.formContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1%;
+    margin-top: 2%;
     max-width: 300px;
     padding: 20px;
     background-color: #fff;
-  }
-  .formContainer input[type=text],
-  .formContainer input[type=number] {
-    width: 100%;
+}
+
+.formContainer label{
+    font-weight: 700;
+}
+.formContainer input[type=checkbox]{
+    margin-left: 5%;
+}
+.formContainer input[type=text],
+.formContainer input[type=number] {
+    width: 80%;
     padding: 15px;
     margin: 5px 0 20px 0;
     border: none;
     background: #eee;
-  }
+}
   .formContainer input[type=text]:focus,
   .formContainer input[type=number]:focus {
     background-color: #ddd;
     outline: none;
-  }
-  .formContainer .btn {
+}
+.formContainer .btn {
+    margin-top: 5%;
     padding: 12px 20px;
     border: none;
     background-color: #8ebf42;
@@ -95,11 +124,11 @@ html, body {
     width: 100%;
     margin-bottom: 15px;
     opacity: 0.8;
-  }
-  .formContainer .cancel {
+}
+.formContainer .cancel {
     background-color: #cc0000;
-  }
-  .formContainer .btn:hover,
-  .openButton:hover {
+}
+.formContainer .btn:hover,
+.openButton:hover {
     opacity: 1;
-  }
+ }

@@ -53,6 +53,13 @@ function openForm() {
 }
 function closeForm() {
     document.getElementById("popupForm").style.display = "none";
+    const title = document.getElementById("title")
+    const author = document.getElementById("author")
+    const pages = document.getElementById("pages");
+    
+    title.value='';
+    author.value='';
+    pages.value='';
 }
 
 
@@ -69,7 +76,7 @@ function addBookToMain(book){
         continue;
         console.log(typeof book[name])
 
-        card.innerHTML += "<br/>" +name + ": "+ book[name] + "<br/>";
+        card.innerHTML += "<br/>" +name.toUpperCase() + ": "+ book[name] + "<br/>";
     }
     document.getElementById("main").appendChild(card);
 }
