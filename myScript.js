@@ -1,23 +1,48 @@
 let myLibrary = [];
 
+class Book{
+    title;
+    author;
+    pages;
+    read;
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+    info(){
+        var readStatus;
+
+        if(this.read){
+          readStatus = "has been read."
+        }
+        else{
+            readStatus = "has not been read."
+        }
+        return this.title + " by " + this.author + ", " + this.pages + " pages, " + readStatus;
+    }
 }
 
-Book.prototype.info = function(){
-    var readStatus;
-    if(this.read){
-        readStatus = "has been read."
-    }
-    else{
-        readStatus = "has not been read."
-    }
-    return this.title + " by " + this.author + ", " + this.pages + " pages, " + readStatus;
-}
+
+// function Book(title, author, pages, read){
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+// }
+
+// Book.prototype.info = function(){
+//     var readStatus;
+//     if(this.read){
+//         readStatus = "has been read."
+//     }
+//     else{
+//         readStatus = "has not been read."
+//     }
+//     return this.title + " by " + this.author + ", " + this.pages + " pages, " + readStatus;
+// }
 
 
 var theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
@@ -72,8 +97,8 @@ function addBookToMain(book){
     card.innerHTML =  "<br/>" + "BOOK" + "<br/>"
     // card.innerHTML = Book.info();
     for(var name in book){
-        if((typeof book[name]) == "function")
-        continue;
+        // if((typeof book[name]) == "function")
+        // continue;
         console.log(typeof book[name])
 
         card.innerHTML += "<br/>" +name.toUpperCase() + ": "+ book[name] + "<br/>";
